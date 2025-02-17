@@ -54,11 +54,7 @@ This application is designed for librarians and library members to facilitate bo
    ```bash
    git clone https://github.com/fakhrimaulanaherza/Library_System_Administration.git
    cd Library_System_Administration
-   pip install -r requirements.txt  # If using a requirements.txt file
    ```
-
-3. **Database Setup (if applicable):**
-   Follow specific instructions for configuring your database connection, aligning with the business's chosen database management system.
 
 ## Usage
 
@@ -69,19 +65,37 @@ This application is designed for librarians and library members to facilitate bo
    ```
 
 2. **CRUD Operations:**
-   - **Create:** Add a new [Data Entity] record, for example, a new customer in a customer management system, providing details like name, contact information, and preferences.
-   - **Read:** Search and retrieve customer information by name, ID, or other relevant criteria.
-   - **Update:** Modify customer details, such as updating their address or contact details.
-   - **Delete:** Remove a customer record from the system (with appropriate authorization, if applicable).
+   - **Create:** Add a new book entry or borrow a book by specifying book ID, borrower name, and NIK.
+   - **Read:** View available books and loan history.
+   - **Update:** Extend a loan period if conditions are met.
+   - **Delete:** Remove transaction history (admin access required).
 
 ## Data Model
 
-This project utilizes a [Data Structure] (e.g., relational database, JSON documents) to represent [Data Entity] data. The following fields are typically stored:
+This project utilizes a dictionary-based data structure to store book and transaction data. The following fields are used:
 
-- [Field 1]: (Data type) - Description of the field's purpose in the business context.
-- [Field 2]: (Data type) - Description of the field's purpose in the business context.
-- ... (List all relevant fields)
+## Books Data:
+
+- ID: (Integer) - Unique identifier for each book.
+- Title: (String) - Name of the book.
+- Status: (String) - Availability of the book (available or not available).
+
+## Transactions Data:
+
+- Book ID: (Integer) - References the borrowed book.
+- NIK: (String) - Unique identification number of the borrower.
+- Name: (String) - Name of the borrower.
+- Borrow Date: (Datetime) - The date the book was borrowed.
+- Return Date: (Datetime) - The date the book was returned (if applicable).
+- Notes: (String) - Additional remarks on book condition.
+- Extension Count: (Integer) - Number of times the loan has been extended.
+
+## Future Enhancements:
+
+- Integration with a database for persistent data storage.
+- Web-based UI for better user interaction.
+- Notification system for due dates and late returns.
 
 ## Contributing
 
-We welcome contributions to this project! Please feel free to open a pull request, sent to [your_email] or submit an issue if you encounter any problems or have suggestions for improvements.
+We welcome contributions to this project! Please feel free to open a pull request, sent to [fakhrimaulanaherza@gmail.com] or submit an issue if you encounter any problems or have suggestions for improvements.
